@@ -1,0 +1,31 @@
+services:
+  # Explicitly define the repository service
+  Skynettechnologies\AllinOneAccessibilityBundle\Repository\AioaWidgetSettingRepository: ~
+  # Register the DefaultAdminController and inject the necessary service
+  Skynettechnologies\AllinOneAccessibilityBundle\Controller\Admin\DefaultAdminController:
+    arguments:
+      $repository: '@Skynettechnologies\AllinOneAccessibilityBundle\Repository\AioaWidgetSettingRepository'
+
+  # Register the menu listener
+  Skynettechnologies\AllinOneAccessibilityBundle\Menu\MyMenuListener:
+    tags:
+      - { name: kernel.event_subscriber }
+
+#  # Register the custom Twig extension
+#  App\Twig\AllinOneAccessibilityTwigExtension:
+#    tags: ['twig.extension']
+
+  # Register the custom Twig extension for accessibility settings
+  Skynettechnologies\AllinOneAccessibilityBundle\Twig\AllinOneAccessibilityTwigExtension:
+#    arguments:
+#      $entityManager: '@doctrine.orm.entity_manager'  # Inject the EntityManager
+    tags: [ 'twig.extension' ]
+
+  # Automatically register event listeners from your bundle
+  Skynettechnologies\AllinOneAccessibilityBundle\EventListener\:
+    resource: '../src/EventListener/*'  # Adjusted to the correct relative path
+    autowire: true
+    autoconfigure: true
+    public: true
+    tags:
+      - { name: kernel.event_subscriber }

@@ -1,0 +1,16 @@
+all_in_one_accessibility_bundle.index.admin:
+  path: /allinoneaccessibility/{page}
+  defaults:
+    page: 1
+    _controller: 'Skynettechnologies\AllinOneAccessibilityBundle\Controller\Admin\DefaultAdminController::adminAction'
+
+
+#fetch_settings:
+#  path: /allinoneaccessibility/{id}
+#  defaults:
+#    _controller: 'Skynettechnologies\AllinOneAccessibilityBundle\Controller\Admin\DefaultAdminController::fetchWidgetSettings'
+
+
+
+
+

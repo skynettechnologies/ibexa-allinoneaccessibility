@@ -1,0 +1,4 @@
+twig:
+  # Register paths for custom bundles
+  paths:
+    '%kernel.project_dir%/Skynettechnologies/AllinOneAccessibilityBundle/Resources/views': SkynettechnologiesAllinOneAccessibilityBundle
